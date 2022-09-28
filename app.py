@@ -12,9 +12,10 @@ def km():
     return valor
 
 
-@app.route('/consultar', methods=['GET'])
+@app.route('/consultar', methods=['POST'])
 def consultar():
-    url = "https://api.telegram.org/bot5534433351:AAGQnST7oEFiIq6IhMh8nfEuL3UoNa0Ux-8/getUpdates"
+    request_body = request.get_json()
+    url = f'https://api.telegram.org/bot{request_body["token"]}/getUpdates'
 
     payload = {}
     headers = {}
