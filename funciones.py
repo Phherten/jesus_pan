@@ -32,3 +32,7 @@ def resumen():
     km_totales = km_ruta + km_ida + km_vuelta
 
     return km_ruta, media_ruta, media_ida, media_vuelta, km_totales
+
+
+def resetear():
+    resumen_mes = []

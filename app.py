@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify
 import requests
-from funciones import capturar_texto, consultar_mes, resumen
+from funciones import capturar_texto, consultar_mes, resumen, resetear
 import json
 
 app = Flask(__name__)
@@ -50,6 +50,7 @@ def resumen_mes():
     send_text = 'https://api.telegram.org/bot' + bot_token + '/sendMessage?chat_id=' + bot_chat_id + '&parse_mode' \
                                                                                                      '=Markdown&text=' + msg
     response = requests.get(send_text)
+    resetear()
 
     return "Resumen enviado"
 
